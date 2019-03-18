@@ -5,6 +5,8 @@ div
       .p_mv-header
         h1.p_mv-heading
           span.p_mv-heading-text note から RSS を取得するテスト
+        p.p_mv-text
+          a(href="/api/note") このページで利用している API はここ
   section.p_note(v-for="apiItems in apiResult")
     .c_inner
       .p_note-header.c_col.u_col-ai-c
@@ -125,6 +127,10 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: underline;
+}
+
 .p_mv {
   padding: 60px 0;
 
@@ -136,6 +142,11 @@ export default {
       font-weight: bold;
       font-size: 20px;
     }
+  }
+
+  &-text {
+    font-size: 13px;
+    margin: 8px 0 0;
   }
 }
 
@@ -156,7 +167,6 @@ export default {
 
   &-descript {
     a {
-      text-decoration: underline;
       font-size: 14px;
     }
   }
@@ -168,21 +178,21 @@ export default {
 
   .p_nt {
     @include pc {
-      width: calc(33.3333% - 50px);
-      min-width: calc(33.3333% - 50px);
-      margin: 0 0 25px 25px;
+      width: cal(300, 950);
+      min-width: cal(300, 950);
+      margin: 0 0 cal(25, 950) cal(25, 950);
 
       &:nth-child(3n + 1) {
-        margin: 0 0 25px 0;
+        margin: 0 0 cal(25, 950) 0;
       }
     }
     @include sp {
-      width: calc(50% - 10px);
-      min-width: calc(50% - 10px);
-      margin: 0 0 20px 20px;
+      width: cal(50, 105);
+      min-width: cal(50, 105);
+      margin: 0 0 cal(5, 105) cal(5, 105);
 
       &:nth-child(2n + 1) {
-        margin: 0 0 20px 0;
+        margin: 0 0 cal(5, 105) 0;
       }
     }
     border: 1px solid #ccc;
@@ -204,7 +214,12 @@ export default {
     }
 
     &-body {
-      padding: 0 20px;
+      @include sp {
+        padding: 0 10px;
+      }
+      @include pc {
+        padding: 0 20px;
+      }
 
       &-header {
         margin: 0 0 15px;
@@ -228,7 +243,12 @@ export default {
       }
 
       &-button {
-        width: calc(100% - 40px);
+        @include sp {
+          width: calc(100% - 25px);
+        }
+        @include pc {
+          width: calc(100% - 40px);
+        }
         padding: 5px 10px;
         border: 1px solid $palet2;
         text-align: center;
@@ -269,7 +289,6 @@ export default {
 
     a {
       font-size: 12px;
-      text-decoration: underline;
     }
   }
 }
