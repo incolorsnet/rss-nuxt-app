@@ -1,6 +1,6 @@
-# gce-app
+# nokura.me
 
-> My bee&#39;s knees Nuxt.js project
+> nokura.me
 
 ## Build Setup
 

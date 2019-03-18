@@ -24,12 +24,16 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '@/assets/css/_style.scss'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '@/plugins/Vue2TouchEvents.js' }
+  ],
 
   /*
    ** Nuxt.js modules
@@ -37,8 +41,22 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources'
+    // ['nuxt-sass-resources-loader', [
+    //   '~/assets/css/_parts/_variables.scss',
+    //   '~/assets/css/_parts/_function.scss',
+    // ]]
   ],
+  styleResources: {
+   // your settings here
+    scss: [
+      '@/assets/css/_parts/_variables.scss',
+      '@/assets/css/_parts/_function.scss',
+    ],
+    less: [],
+    stylus: []
+   },
   /*
    ** Axios module configuration
    */
@@ -63,6 +81,11 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    extractCSS: true
+  },
+  generate: {
+    dir: 'dist',
+    collapseWhitespace: false,
   }
 }
