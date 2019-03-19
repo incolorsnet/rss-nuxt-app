@@ -5,8 +5,11 @@ div
       .p_mv-header
         h1.p_mv-heading
           span.p_mv-heading-text note から RSS を取得するテスト
-        p.p_mv-text
-          a(href="/api/note") このページで利用している API はここ
+        .p_mv-text
+          p
+            a(href="/api/note") このページで利用している API はここ
+            br
+            a(href="https://github.com/incolorsnet/rss-nuxt-app", target="_blank", ref="noreferrer noopener") ソースコード全文 はここ
   section.p_note(v-for="apiItems in apiResult")
     .c_inner
       .p_note-header.c_col.u_col-ai-c
