@@ -82,3 +82,5 @@ dist
 
 # Service worker
 sw.*
+
+gcp_p.txt
