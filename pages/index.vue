@@ -21,14 +21,14 @@ div
         .p_note-body-list.c_col.u_col-wrap
           article.p_nt(v-for="postItem in apiItems.items")
             .p_nt-inner
-              a.p_nt-mv(v-html="getMvImagePath(postItem.description[0], postItem.title[0])", :href="postItem.link[0]", target="_blank", v-touch:tap)
+              a.p_nt-mv(v-html="getMvImagePath(postItem.description[0], postItem.title[0])", :href="postItem.link[0]", v-touch:tap)
               .p_nt-body
                 .p_nt-body-header
                   .p_nt-body-date
                     p(v-html="getTheDate(postItem.pubDate)")
-                  .p_nt-body-heading.c_col.u_col-ai-c
+                  a.p_nt-body-heading.c_col.u_col-ai-c(:href="postItem.link[0]")
                     h3.p_nt-body-heading-text(v-html="postItem.title[0]")
-                a.p_nt-body-button(:href="postItem.link[0]", target="_blank", v-touch:tap="true")
+                a.p_nt-body-button(:href="postItem.link[0]", v-touch:tap="true")
                   p.p_nt-body-button-text 続きを読む
   footer.p_footer
     .p_footer-text
